@@ -7,7 +7,7 @@
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="Center"> 
 
             <Image
                 Source="dotnet_bot.png"
