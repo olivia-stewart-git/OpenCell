@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AnimationApp.Builder;
 
 namespace AnimationApp
 {
@@ -6,20 +6,20 @@ namespace AnimationApp
     {
         public static MauiApp CreateMauiApp()
         {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+            var app = MauiApp.CreateBuilder()
+                        .UseMauiApp<App>()
+                        .ConfigureFonts(fonts =>
+                        {
+                            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                            fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                        })
+                        .RegisterServices()
+                        .RegisterRoutes()
+                        .Build();
 
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
+            ServiceHelper.Initialize(app.Services);
 
-            return builder.Build();
+            return app;
         }
     }
 }

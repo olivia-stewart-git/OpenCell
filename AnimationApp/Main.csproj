@@ -53,10 +53,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Model\" />
-	  <Folder Include="Business\" />
-	  <Folder Include="Service\" />
-	  <Folder Include="View\" />
+	  <Compile Update="AnimationEditor\Views\EditorPage.xaml.cs">
+	    <DependentUpon>EditorPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="AnimationEditor\Views\EditorPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
